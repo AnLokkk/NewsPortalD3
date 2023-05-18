@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+
+{% load censor_filter %}
+
+{% block title %}
+NewsPortal
+{% endblock title %}
+
+{% block content %}
+<h1>Всё самое интересное !!!</h1>
+<hr>
+{% for x in news %}
+<p><h4>{{ x.title|censor }}: {{ x.text|truncatechars:20 }}</h4>   <h6>{{ x.dateCreation }}</h6></p>
+{% endfor %}
+{% endblock content %}
